@@ -2175,6 +2175,7 @@ const auth = async () => {
     // Generate a new access token using Github Device Flow (OAuth 2.0).
     const newToken = await executeGithubDeviceFlow(String(process.env.AUTH_GITHUB_CLIENT_ID));
     // Store the new access token.
+    console.log(newToken);
     setLocalAccessToken(newToken);
     // }
     // else
