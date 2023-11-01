@@ -1,0 +1,60 @@
+/** Services */
+export declare const CORE_SERVICES_ERRORS: {
+    FIREBASE_DEFAULT_APP_DOUBLE_CONFIG: string;
+    FIREBASE_TOKEN_EXPIRED_REMOVED_PERMISSIONS: string;
+    FIREBASE_USER_DISABLED: string;
+    FIREBASE_FAILED_CREDENTIALS_VERIFICATION: string;
+    FIREBASE_NETWORK_ERROR: string;
+    FIREBASE_CEREMONY_NOT_OPENED: string;
+    FIREBASE_CEREMONY_NOT_CLOSED: string;
+    AWS_CEREMONY_BUCKET_CREATION: string;
+    AWS_CEREMONY_BUCKET_CANNOT_DOWNLOAD_GET_PRESIGNED_URL: string;
+};
+/** Github */
+export declare const THIRD_PARTY_SERVICES_ERRORS: {
+    GITHUB_ACCOUNT_ASSOCIATION_REJECTED: string;
+    GITHUB_SERVER_TIMEDOUT: string;
+    GITHUB_GET_GITHUB_ACCOUNT_INFO: string;
+    GITHUB_NOT_AUTHENTICATED: string;
+    GITHUB_GIST_PUBLICATION_FAILED: string;
+};
+/** Command */
+export declare const COMMAND_ERRORS: {
+    COMMAND_NOT_COORDINATOR: string;
+    COMMAND_ABORT_PROMPT: string;
+    COMMAND_ABORT_SELECTION: string;
+    COMMAND_SETUP_NO_R1CS: string;
+    COMMAND_SETUP_NO_WASM: string;
+    COMMAND_SETUP_MISMATCH_R1CS_WASM: string;
+    COMMAND_SETUP_DOWNLOAD_PTAU: string;
+    COMMAND_SETUP_ABORT: string;
+    COMMAND_CONTRIBUTE_NO_OPENED_CEREMONIES: string;
+    COMMAND_CONTRIBUTE_NO_PARTICIPANT_DATA: string;
+    COMMAND_CONTRIBUTE_WRONG_OPTION_CEREMONY: string;
+    COMMAND_CONTRIBUTE_NO_CURRENT_CONTRIBUTOR_DATA: string;
+    COMMAND_CONTRIBUTE_NO_CURRENT_CONTRIBUTOR_CONTRIBUTION: string;
+    COMMAND_CONTRIBUTE_WRONG_CURRENT_CONTRIBUTOR_CONTRIBUTION_STEP: string;
+    COMMAND_CONTRIBUTE_NO_CIRCUIT_DATA: string;
+    COMMAND_CONTRIBUTE_NO_ACTIVE_TIMEOUT_DATA: string;
+    COMMAND_CONTRIBUTE_NO_UNIQUE_ACTIVE_TIMEOUTS: string;
+    COMMAND_CONTRIBUTE_FINALIZE_NO_TRANSCRIPT_CONTRIBUTION_HASH_MATCH: string;
+    COMMAND_FINALIZED_NO_CLOSED_CEREMONIES: string;
+    COMMAND_FINALIZED_NOT_READY_FOR_FINALIZATION: string;
+};
+/** Config */
+export declare const CONFIG_ERRORS: {
+    CONFIG_GITHUB_ERROR: string;
+    CONFIG_FIREBASE_ERROR: string;
+    CONFIG_OTHER_ERROR: string;
+};
+/** Generic */
+export declare const GENERIC_ERRORS: {
+    GENERIC_ERROR_RETRIEVING_DATA: string;
+    GENERIC_COUNTDOWN_EXPIRATION: string;
+};
+/**
+ * Print an error string and gracefully terminate the process.
+ * @param err <string> - the error string to be shown.
+ * @param doExit <boolean> - when true the function terminate the process; otherwise not.
+ */
+export declare const showError: (err: string, doExit: boolean) => void;
