@@ -1427,14 +1427,15 @@ const promptToTypeEntropyOrBeacon = async (isEntropy = true) => {
  */
 const promptForEntropy = async () => {
     // Prompt for entropy generation prefered method.
-    const { confirmation } = await askForConfirmation(`Would you like to automatically sample your entropy or manually type it in?`, "Manually", "Automatically");
-    if (confirmation === undefined)
-        showError(COMMAND_ERRORS.COMMAND_ABORT_PROMPT, true);
-    // Auto-generate entropy.
-    if (!confirmation)
+    // const { confirmation } = await askForConfirmation(`Would you like to automatically sample your entropy or manually type it in?`, "Manually", "Automatically");
+    // if (confirmation === undefined)
+    //     showError(COMMAND_ERRORS.COMMAND_ABORT_PROMPT, true);
+    // // Auto-generate entropy.
+    // if (!confirmation)
+    //     console.log("autoGenerateEntropy");
         return autoGenerateEntropy();
     // Prompt for manual entropy input.
-    return promptToTypeEntropyOrBeacon();
+    // return promptToTypeEntropyOrBeacon();
 };
 
 const packagePath$2 = `${dirname(fileURLToPath(import.meta.url))}`;
@@ -2710,6 +2711,7 @@ const contribute = async (opt) => {
     await sleep(2000); // wait for CF execution.
     // Get updated participant data.
     const participant = await getDocumentById(firestoreDatabase, getParticipantsCollectionPath(selectedCeremony.id), user.uid);
+    // console.log(participant);
     const participantData = participant.data();
     if (!participantData)
         showError(COMMAND_ERRORS.COMMAND_CONTRIBUTE_NO_PARTICIPANT_DATA, true);
@@ -2724,6 +2726,15 @@ const contribute = async (opt) => {
         checkAndMakeNewDirectoryIfNonexistent(localPaths.transcripts);
         // Extract participant data.
         const { contributionProgress, contributionStep } = participantData;
+        // console.log(participantData);
+        // console.log(JSON.stringify(circuits,null,2));
+        const res = await fetch('https://api.ipify.org/?format=json');
+        if (res.ok) {
+            const data = await res.json();
+            console.log(data);
+        }
+
+
         // Check if the participant can input the entropy
         if (contributionProgress < circuits.length ||
             (contributionProgress === circuits.length && contributionStep < "UPLOADING" /* ParticipantContributionStep.UPLOADING */)) {
@@ -2733,6 +2744,7 @@ const contribute = async (opt) => {
             // Prompt for entropy generation.
             else
                 entropy = await promptForEntropy();
+                // console.log(entropy);
         }
         // Listener to following the core contribution workflow.
         await listenToParticipantDocumentChanges(firestoreDatabase, firebaseFunctions, participant, selectedCeremony, entropy, providerUserId, token);
