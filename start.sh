@@ -11,7 +11,7 @@ docker exec nocturne-$1 /bin/bash -c  "echo 'socks5 $2 $3 $4 $5' >> /etc/proxych
 # docker exec nocturne-$1 /bin/bash -c  "cat /etc/proxychains4.conf"
 docker cp dist/index.js nocturne-$1:/usr/local/lib/node_modules/@nocturne-xyz/nocturne-setup/dist
 # docker container cp ./nocturne-$1.json nocturne-$1:/root/.nocturne-
-sleep 2
+# sleep 2
 
 docker restart nocturne-$1
 # docker logs nocturne-$1 -f
