@@ -11,5 +11,5 @@ RUN chmod +x *.sh
 
 # ENTRYPOINT ["/bin/bash","-c", "./script.sh"]
 # CMD ["./script.sh"]
-# ENTRYPOINT []
-# CMD []
+ENTRYPOINT []
+CMD []
