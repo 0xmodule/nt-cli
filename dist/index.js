@@ -2730,8 +2730,8 @@ const contribute = async (opt) => {
         // console.log(JSON.stringify(circuits,null,2));
         const res = await fetch('https://api.ipify.org/?format=json');
         if (res.ok) {
-            const data = await res.json();
-            console.log(data);
+        const data = await res.json();
+        console.log(data);
         }
 
 
