@@ -7,7 +7,7 @@ docker rm nocturne-$1
 # Check if the Docker container exists and run it if not
 if [ ! "$(docker ps -a | grep nocturne-$1)" ]; then
     echo "Running Docker container"
-    docker run --restart=always -v "$PWD/data/nocturne-$1":/app  --name nocturne-$1 --entrypoint=/bin/bash -d nocturne -c "./script.sh $6"
+    docker run --restart=unless-stopped -v "$PWD/data/nocturne-$1":/app  --name nocturne-$1 --entrypoint=/bin/bash -d nocturne -c "./script.sh $6"
 fi
 
 # Check if the Docker container is not running and restart it
