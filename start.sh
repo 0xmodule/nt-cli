@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Stop and remove the Docker container if it exists
-# docker stop nocturne-$1
-# docker rm nocturne-$1
+docker stop nocturne-$1
+docker rm nocturne-$1
 
 # Check if the Docker container exists and run it if not
 if [ ! "$(docker ps -a | grep nocturne-$1)" ]; then
