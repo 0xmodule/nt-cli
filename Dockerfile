@@ -1,4 +1,5 @@
 FROM node:18
+WORKDIR /app
 RUN apt-get update
 RUN apt-get install proxychains-ng -y
 RUN npm install -g @nocturne-xyz/nocturne-setup
